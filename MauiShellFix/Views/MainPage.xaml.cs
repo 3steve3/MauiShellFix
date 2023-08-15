@@ -1,4 +1,6 @@
-﻿namespace MauiShellFix
+﻿
+
+namespace MauiShellFix.Views
 {
     public partial class MainPage : ContentPage
     {
@@ -19,6 +21,11 @@
                 CounterBtn.Text = $"Clicked {count} times";
 
             SemanticScreenReader.Announce(CounterBtn.Text);
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync(nameof(Page2));
         }
     }
 }
