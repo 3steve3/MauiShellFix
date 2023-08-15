@@ -15,8 +15,15 @@ namespace MauiShellFix
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+#if IOS
+		builder.ConfigureMauiHandlers(handlers =>
+		{
+			handlers.AddHandler<Shell, ShellWorkarounds>();
+		});
+#endif
+
 #if DEBUG
-		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();
